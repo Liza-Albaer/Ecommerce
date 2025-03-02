@@ -1,0 +1,118 @@
+<div class="my-5 container">
+  <h2 class="text-center mt-10">Register Form</h2>
+@if (errormessage) {
+  <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+    <span class="font-medium">{{errormessage}}</span>
+  </div>
+
+}
+<form class="max-w-sm mx-auto w-[75]" [formGroup]="registerform" (ngSubmit)="submit()">
+
+  <div class="mb-5">
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">name</label>
+    <input type="text" formControlName="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="full name" required />
+   @let name =registerform.get('name');
+    @if (name?.touched) {
+    @if(name?.hasError('required')){
+      <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+        <span class="font-medium">Name is required</span>
+      </div>
+    }@else if (name?.hasError('minlength')) {
+      <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+        <span class="font-medium">Minlength 3</span>
+      </div>
+    }@else if (name?.hasError('maxlength')) {
+      <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+        <span class="font-medium">Maxlength 20</span>
+      </div>
+    }
+   }
+
+
+  </div>
+  <div class="mb-5">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+    <input type="email" id="email" formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+    @let email =registerform.get('email');
+    @if (email?.touched) {
+      @if(email?.hasError('required')){
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">email is required</span>
+        </div>
+      }@else if (email?.hasError('email')) {
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">email not vaild</span>
+        </div>
+      }
+    }
+  </div>
+  <div class="mb-5">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+    <input type="password" id="password" formControlName="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    @let password =registerform.get('password');
+    @if (password?.touched) {
+      @if(password?.hasError('required')){
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">password is required</span>
+        </div>
+      }@else if (password?.hasError('pattern')) {
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">invalid password format it must be 6 character</span>
+        </div>
+      }
+    }
+  </div>
+  <div class="mb-5">
+    <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your repassword</label>
+    <input type="password" id="rePassword" formControlName="rePassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    @let rePassword =registerform.get('rePassword');
+    @if (rePassword?.touched) {
+      @if(rePassword?.hasError('required')){
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">confirm password is required</span>
+        </div>
+      }@else if (rePassword?.hasError('mismatch')) {
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">Mismatch password</span>
+        </div>
+      }
+    }
+  </div>
+  <div class="mb-5">
+    <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your phone</label>
+    <input type="text" id="phone" formControlName="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    @let phone =registerform.get('phone');
+    @if (phone?.touched) {
+      @if(phone?.hasError('required')){
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">phone is required</span>
+        </div>
+      }@else if (phone?.hasError('pattern')) {
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">invalid phone number</span>
+        </div>
+      }
+    }
+  </div>
+  <div class="flex justify-end">
+    <button type="submit" [class]="registerform.invalid?'disabled':'enabled'" [disabled]="registerform.invalid " class=" focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
+      @if(loading){
+        <i class="fas fa-spin fa-spinner"></i>
+      }
+      Submit</button>
+  </div>
+
+</form>
+</div>
+

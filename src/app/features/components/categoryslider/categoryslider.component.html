@@ -1,0 +1,15 @@
+<div >
+  <h2>Best Selling categories</h2>
+  <owl-carousel-o [options]="customOptions">
+    @for (categories of category ; track categories._id ) {
+      <ng-container >
+        <ng-template carouselSlide [id]="categories._id">
+         <app-categorycard [categories]="categories"></app-categorycard>
+        </ng-template>
+      </ng-container>
+    }
+
+
+    </owl-carousel-o>
+
+</div>
