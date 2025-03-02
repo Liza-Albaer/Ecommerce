@@ -21,6 +21,7 @@ constructor(private readonly cartService:CartService) {
 ngOnChanges():void{
 console.log(this.searchItem)
 }
+
 addtocart(id:string){
   const data={
     productId:id,

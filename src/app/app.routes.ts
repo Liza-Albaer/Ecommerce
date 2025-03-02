@@ -1,3 +1,4 @@
+
 import { ForgetpasswordComponent } from './pages/components/forgetpassword/forgetpassword.component';
 import { DetailsComponent } from './pages/components/details/details.component';
 import { Routes } from '@angular/router';
@@ -59,7 +60,7 @@ export const routes: Routes = [
       },{
         path:'cart',  loadComponent:()=>import('./pages/components/cart/cart.component').then(c=>c.CartComponent),title:'cart'
       },{
-        path:'details/:id',   loadComponent:()=>import('./pages/components/details/details.component').then(c=>c.DetailsComponent),title:'product Details'
+        path:'details/:id',  loadComponent:()=>import('./pages/components/details/details.component').then(c=>c.DetailsComponent),title:'product Details'
       }
     ]
   },{
@@ -69,3 +70,5 @@ export const routes: Routes = [
   }
 
 ];
+
+
