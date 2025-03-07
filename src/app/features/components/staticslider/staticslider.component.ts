@@ -55,8 +55,6 @@ export class StaticsliderComponent {
           this.category=res.data;
         }
 
-      },error:(err)=>{
-        console.log(err);
       }
     })
   }

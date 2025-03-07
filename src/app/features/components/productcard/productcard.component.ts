@@ -3,6 +3,7 @@ import { products } from '../../../shared/interface/product';
 import { CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../../shared/services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ProductcardComponent {
   @Input() searchItem!:string;
 @Input() items!:products;
 
-constructor(private readonly cartService:CartService) {
+constructor(private readonly cartService:CartService,private toastr: ToastrService) {
 
 }
 ngOnChanges():void{
@@ -28,11 +29,8 @@ addtocart(id:string){
   }
 this.cartService.addtocart(data).subscribe({
   next:(res)=>{
-
+  this.toastr.success(res.message,res.status)
     console.log(res);
-  },
-  error:(err)=>{
-console.log(err);
   }
 })
 }

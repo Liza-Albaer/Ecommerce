@@ -43,10 +43,6 @@ export class ForgetpasswordComponent {
         next:(res)=>{
           this.step=1;
           this.loading=false;
-        },
-        error:(err)=>{
-          this.loading=false;
-          console.log(err);
         }
       });
     }
@@ -62,10 +58,6 @@ export class ForgetpasswordComponent {
           this.loading=false;
 
           this.resetpasswordform.get('email')?.patchValue(this.forgetpasswordform.get('email')?.value);
-        },
-        error:(err)=>{
-          this.loading=false;
-          console.log(err);
         }
       });
     }
@@ -79,10 +71,6 @@ if(this.resetpasswordform.valid){
 
       this.loading=false;
       this.router.navigate(['/login']);
-    },
-    error:(err)=>{
-      this.loading=false;
-      console.log(err);
     }
   });
 }

@@ -1,11 +1,6 @@
 <div class="my-5 container">
-  <h2 class="text-center mt-10">Register Form</h2>
-@if (errormessage) {
-  <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-    <span class="font-medium">{{errormessage}}</span>
-  </div>
+  <h2 class="text-center mt-10 dark:text-white">Register Form</h2>
 
-}
 <form class="max-w-sm mx-auto w-[75]" [formGroup]="registerform" (ngSubmit)="submit()">
 
   <div class="mb-5">

@@ -37,6 +37,8 @@
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
 
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+               "node_modules/ngx-toastr/toastr.css",
+               "node_modules/ngx-spinner/animations/ball-scale-multiple.css", 
               "src/styles.scss"
             ],
             "scripts": [],
@@ -122,6 +124,8 @@
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
 
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+               "node_modules/ngx-toastr/toastr.css",
+               "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "src/styles.scss"
             ],
             "scripts": []

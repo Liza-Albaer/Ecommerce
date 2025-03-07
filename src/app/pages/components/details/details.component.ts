@@ -29,10 +29,7 @@ product!:products;
     this.productdetailsService.getproductdetails(id).subscribe({
       next: (res) => {
         this.product = res.data;
-      },
-      error: (err) => {
-        console.error('Error fetching product details:', err); 
-      },
+      }
     });
   }
 }

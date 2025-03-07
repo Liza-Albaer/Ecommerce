@@ -37,8 +37,6 @@ export class ProductlistComponent {
           this.products=res.data;
         }
 
-      },error:(err)=>{
-        console.log(err);
       }
     })
   }

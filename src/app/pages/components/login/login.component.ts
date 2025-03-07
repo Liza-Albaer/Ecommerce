@@ -12,7 +12,7 @@ import { jwtDecode } from "jwt-decode";
 })
 export class LoginComponent {
   loading:boolean=false;
-  errormessage!:string;
+ 
  userData!:any;
   loginform: FormGroup = new FormGroup({
 
@@ -42,13 +42,7 @@ submit(){
       this.router.navigate(['/home']);
       console.log(res)
     }
-      ,
-    error:(err)=>{
-this.loading=false;
-this.errormessage=err.error.message;
-;
-
-    }});
+      });
 
 
  }else{

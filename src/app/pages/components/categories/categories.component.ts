@@ -26,8 +26,6 @@ export class CategoriesComponent {
           this.category=res.data;
 
 
-      },error:(err)=>{
-        console.log(err);
       }
     })
   }

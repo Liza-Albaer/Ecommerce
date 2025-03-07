@@ -9,13 +9,9 @@
     <!-- Form Section -->
     <div class="md:w-1/2 w-full p-5 flex flex-col justify-between">
       <div class="my-5 container">
-        <h2 class="text-center mt-10">Login Form</h2>
+        <h2 class="text-center mt-10 dark:text-white">Login Form</h2>
 
-        @if (errormessage) {
-          <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-            <span class="font-medium">{{errormessage}}</span>
-          </div>
-        }
+        
 
         <form class="max-w-sm mx-auto w-full" [formGroup]="loginform" (ngSubmit)="submit()">
           <div class="mb-5">

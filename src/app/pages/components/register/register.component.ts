@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   loading:boolean=false;
-  errormessage!:string;
+ 
 
   registerform: FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]),
@@ -52,13 +52,7 @@ submit(){
       this.router.navigate(['/login']);
       console.log(res)
     }
-      ,
-    error:(err)=>{
-this.loading=false;
-this.errormessage=err.error.message;
-;
-
-    }});
+     });
 
 
  }else{

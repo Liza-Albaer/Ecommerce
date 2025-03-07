@@ -57,8 +57,6 @@ export class CategorysliderComponent {
           this.category=res.data;
         }
 
-      },error:(err)=>{
-        console.log(err);
       }
     })
   }

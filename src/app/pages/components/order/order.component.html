@@ -1,0 +1,81 @@
+<div class="flex justify-center items-center  ">
+  <div class="my-5 container   bg-white dark:bg-gray-800   ">
+    <h2 class="text-center mt-10 dark:text-white">Order Form</h2>
+ 
+  <form class="max-w-sm mx-auto w-[75]" [formGroup]="orderform" (ngSubmit)="submit()">
+
+    <div class="mb-5">
+      <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details</label>
+      <input type="text" formControlName="details" id="details" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+     @let details =orderform.get('details');
+      @if (details?.touched) {
+      @if(details?.hasError('required')){
+        <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+          <span class="font-medium">details is required</span>
+        </div>
+      }
+     }
+
+
+    </div>
+    <div class="mb-5">
+      <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your city</label>
+      <input type="text" id="city" formControlName="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+      @let city =orderform.get('city');
+      @if (city?.touched) {
+        @if(city?.hasError('required')){
+          <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+            <span class="font-medium">city is required</span>
+          </div>
+        }
+      }
+    </div>
+
+
+    <div class="mb-5">
+      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your phone</label>
+      <input type="text" id="phone" formControlName="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+      @let phone =orderform.get('phone');
+      @if (phone?.touched) {
+        @if(phone?.hasError('required')){
+          <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+            <span class="font-medium">phone is required</span>
+          </div>
+        }@else if (phone?.hasError('pattern')) {
+          <div class="p-4 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+
+            <span class="font-medium">invalid phone number</span>
+          </div>
+        }
+      }
+
+    </div>
+
+    <div >
+
+      <div class="flex items-center mb-4">
+        <input id="default-radio-1" formControlName="type" type="radio" value="cash" name="type" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">cash</label>
+    </div>
+    <div class="flex items-center">
+        <input checked id="default-radio-2" formControlName="type" type="radio" value="online" name="type" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">online</label>
+    </div>
+
+    </div>
+    <div class="flex justify-end">
+      <button type="submit" [class]="orderform.invalid?'disabled':'enabled'" [disabled]="orderform.invalid " class="mb-4 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
+        @if(loading){
+          <i class="fas fa-spin fa-spinner"></i>
+        }
+        Submit</button>
+    </div>
+
+  </form>
+  </div>
+</div>
+
+

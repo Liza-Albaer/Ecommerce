@@ -6,6 +6,7 @@ export interface cart{
   numberOfCartItems:number;
   cartId:string;
   data:Data;
+  message:string;
 }
 
 export interface Data{
